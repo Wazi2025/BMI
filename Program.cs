@@ -6,8 +6,6 @@ class Program
     {
         double heightFloat = 0;
         double weightFloat = 0;
-        bool convertHeight = false;
-        bool convertWeight = false;
         double bmi;
 
 
@@ -16,9 +14,8 @@ class Program
         Console.WriteLine("Please type in your weight (in kg): ");
         string weight = Console.ReadLine();
 
-        convertHeight = double.TryParse(height, out heightFloat);
-
-        convertWeight = double.TryParse(weight, out weightFloat);
+        double.TryParse(height, out heightFloat);
+        double.TryParse(weight, out weightFloat);
 
         bmi = weightFloat / (heightFloat / 100 * heightFloat / 100);
 
