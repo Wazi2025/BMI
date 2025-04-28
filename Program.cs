@@ -2,6 +2,15 @@
 
 class Program
 {
+    class Person
+    {
+        public double HeightFloat { get; set; }
+        public double WeightFloat { get; set; }
+        public double Bmi { get; set; }
+        public string? Input { get; set; }
+        public string TextHeight = "Please type in your height (in cm): ";
+        public string TextWeight = "Please type in your weight (in kg): ";
+    }
     static double ValidateInput(string? input, string text)
     {
         double output;
@@ -17,18 +26,14 @@ class Program
     }
     static void Main(string[] args)
     {
-        double heightFloat;
-        double weightFloat;
-        double bmi;
-        string input = "";
-        const string textHeight = "Please type in your height (in cm): ";
-        const string textWeight = "Please type in your weight (in kg): ";
+        //Instantiate new Person object
+        Person person = new Person();
 
-        heightFloat = ValidateInput(input, textHeight);
-        weightFloat = ValidateInput(input, textWeight);
+        person.HeightFloat = ValidateInput(person.Input, person.TextHeight);
+        person.WeightFloat = ValidateInput(person.Input, person.TextWeight);
 
-        bmi = weightFloat / (heightFloat / 100 * heightFloat / 100);
+        person.Bmi = person.WeightFloat / (person.HeightFloat / 100 * person.HeightFloat / 100);
 
-        Console.WriteLine($"Your BMI is: {bmi:F2}");
+        Console.WriteLine($"Your BMI is: {person.Bmi:F2}");
     }
 }
