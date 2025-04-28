@@ -2,17 +2,16 @@
 
 class Program
 {
-
     static double ValidateInput(string? input, string text)
     {
-        double output = 0;
+        double output;
 
-        while (string.IsNullOrWhiteSpace(input))
+        //Repeat loop as long as input is empty or the parse fails (by using letters for instance)
+        while (string.IsNullOrWhiteSpace(input) || !double.TryParse(input, out output))
         {
             Console.WriteLine(text);
             input = Console.ReadLine();
         }
-        double.TryParse(input, out output);
 
         return output;
     }
