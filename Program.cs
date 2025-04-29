@@ -1,4 +1,6 @@
-﻿namespace BMI;
+﻿using System.Globalization;
+
+namespace BMI;
 
 class Program
 {
@@ -14,8 +16,10 @@ class Program
     static double ValidateInput(string? input, string text)
     {
         double output;
+        //string decimalSepearator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 
-        //Repeat loop as long as input is empty or the parse fails (by using letters for instance)
+        //Repeat loop as long as input is empty or the parse fails (by using letters or the wrong
+        //decimalseparator)
         while (string.IsNullOrWhiteSpace(input) || !double.TryParse(input, out output))
         {
             Console.WriteLine(text);
